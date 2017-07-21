@@ -1,0 +1,12 @@
+{foreach $options as $option}
+<li class="data-list__row">
+<span class="data-list__title"> {$option.caption}:</span>
+<span class="data-list__description">
+{if $option.value is array}
+{$option.value | join : ', '}
+{else}
+{$option.value}
+{/if}
+</span>
+</li>
+{/foreach}

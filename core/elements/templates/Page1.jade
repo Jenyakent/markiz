@@ -1,0 +1,35 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+.wrap
+    .pagetop.clear
+        .pagetop__text
+            h1.hd0 {$_modx->resource.pagetitle}
+            p {$_modx->resource.introtext}
+    .flow.installation
+        .flow__item.w2.n1
+            img(src!="/{$_modx->resource.thumb1}",alt="").img
+        .flow__item.n2
+            img(src!="/{$_modx->resource.thumb2}",alt="").img
+        .flow__item.n3.tx
+            .flow__text {$_modx->resource.text1}
+        .flow__item.n4.tx
+            .flow__text {$_modx->resource.text2}
+        .flow__item.w2.n5
+            img(src!="/{$_modx->resource.thumb3}",alt="").img
+    .flow.half
+        .flow__item.w2.n1
+            img(src!="/{$_modx->resource.thumb4}",alt="").img
+        .flow__item.w2.anyquestions
+            .anyquestions__in
+                .anyquestions__heading Если у&nbsp;вас остались вопросы, напишите нам
+                p Перезвоним и&nbsp;проконсультируем
+                a(href="/{22 | url}#request").btn.yellow Задать вопрос
+        .flow__item.n3
+            img(src!="/{$_modx->resource.thumb5}",alt="").img
+        .flow__item.n4
+            img(src!="/{$_modx->resource.thumb6}",alt="").img
+        .flow__item.tx.w3
+            p {$_modx->resource.text3}
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+|{/block}
+

@@ -1,0 +1,35 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+
+.wrap
+   | {$_modx->runSnippet('pdoCrumbs@subcat3',[
+   | 'from' => '2'])}
+
+   .pagetop
+        .pagetop__text
+            h1.hd0 {$_modx->resource.pagetitle}
+            p {$_modx->resource.longtitle}
+   | {$_modx->runSnippet('ms2Gallery',[
+   | 'tplRow' => '@FILE chunks/category/BlockThumb.html',
+   | 'tplSingle' => '@FILE chunks/category/BlockThumb.html',
+   | 'limit' => '1'])}
+.wave
+    .wrap
+        .catalog-descr
+            .hd1 Каталог товаров
+            p   {$_modx->resource.Cattext}
+        |{$_modx->runSnippet('!mFilter2', [
+        |'includeThumbs' => 'medium,small',
+        |'parents' =>  $_modx->resource.id,
+        |'element' => 'msProducts',
+        |'limit' => 50,
+        |'filters' => 'parent:categories',
+        |'tplOuter' => '@FILE chunks/category/FilterOuter.html',
+        |'tpl' => ' @FILE chunks/category/ProductCard.html',
+        |'tplFilter.outer.resource|parent' => '@FILE chunks/category/CatFilterOuter.html',
+        |'tplFilter.row.resource|parent' => '@FILE chunks/category/CatFilterRow.html',
+        |'disableSuggestions' => '1'])}
+
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+
+|{/block}

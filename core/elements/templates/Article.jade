@@ -1,0 +1,26 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+
+.wrap
+    .articletop.clear
+        .pagetop__text
+            h1.hd1 {$_modx->resource.pagetitle}
+
+    .article__section.clear
+        .article__content
+            |{$_modx->resource.content}
+            |{$_modx->runSnippet('!pdoNeighbors', [
+            |'parents' => $_modx->resource.id,
+            |'tplWrapper' => '@INLINE <div class="article__pagination">[[+prev]][[+next]]</div>',
+            |'tplPrev' => '@INLINE <a class="page_prev" href="/[[+uri]]">Предыдущая статья</a>',
+            |'tplNext' => '@INLINE <a class="page_next" href="/[[+uri]]">Следующая статья</a>'])}
+
+        .order-side
+             .order-box
+                 .order-box__content
+                      .order-box__heading Если у&nbsp;вас остались вопросы, напишите&nbsp;нам
+                      p Перезвоним<br>и проконсультируем
+                 .order-box__footer
+                      a(href="/{22 | url}#request").btn.yellow Задать вопрос
+
+
+|{/block}

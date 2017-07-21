@@ -1,0 +1,62 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+
+.wrap
+    .pagetop.clear
+        .pagetop__text
+            h1.hd0 {$_modx->resource.pagetitle}
+            p {$_modx->resource.introtext}
+
+.categories.clear
+    .categories__item
+        img(src="img/pic1601.jpg", alt="").categories__item_img
+        .categories__item_text
+            .categories__item_title
+                a(href="") {$pagetitle}
+            .categories__item_intro {$introtext}
+    .categories__item
+        img(src="img/pic1601.jpg", alt="").categories__item_img
+        .categories__item_text
+            .categories__item_title
+                a(href="") {$pagetitle}
+            .categories__item_intro {$introtext}
+    .categories__item
+        img(src="img/pic1601.jpg", alt="").categories__item_img
+        .categories__item_text
+            .categories__item_title
+                a(href="") {$pagetitle}
+            .categories__item_intro {$introtext}
+    .categories__item.nobdr
+        .factoid
+            .factoid__icon
+                img(src="/assets/images/ic-stopwatch.png" alt="")
+            .factoid__title Установка<br>от 2-ух дней
+    .categories__item.p4
+        img(src="img/pic1601.jpg", alt="").categories__item_img
+        .categories__item_text
+            .categories__item_title
+                a(href="") {$pagetitle}
+            .categories__item_intro {$introtext}
+    .categories__item
+        img(src="img/pic1601.jpg", alt="").categories__item_img
+        .categories__item_text
+            .categories__item_title
+                a(href="") {$pagetitle}
+            .categories__item_intro {$introtext}
+    .categories__item.nobdr
+        .factoid
+            .factoid__icon
+                img(src="/assets/images/ic-stopwatch.png" alt="")
+            .factoid__title Изготовление<br>на заказ
+            .factoid__descr Предлагаем выезд на&nbsp;объект замерщика, 3D&nbsp;визуализацию. Быстрая сборка и&nbsp;монтаж.
+
+
+.addon.parts
+    .addon__in
+        .addon__sidel
+            .hd1
+                a(href="") Комплектующие<br>для плиссе
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+
+|{/block}
+

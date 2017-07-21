@@ -1,0 +1,26 @@
+.request#request
+    form(action="", method="post").ajax_form
+        .wrap
+            .request__header
+                .request__call.hd1 Позвоните <a href="tel:{$phone}">{$_modx->config.phone}</a>
+            .request__content
+                .request__content_title.hd1 или напишите нам
+                .request__inputs
+                    .form__row
+                        input(type="text" name="workemail" style="display:none;" value="")
+                        label(for="phone").form__label Телефон
+                        input(type="tel", name="phone", id="phone" value="[[!+fi.phone]]").form__inp.validate.required
+                        span.error_message [[+fi.error.phone]]
+                    .form__row
+                        label(for="text").form__label Введите ваше сообщение, например: «Хочу проконсультироваться по поводу выдвижных маркиз. Александр»
+                        textarea(name="text", id="text").form__txa
+        .request__footer
+            .wrap
+                .request__row-btn
+                    .request__btn_wrap
+                        button(type="submit" onclick="yaCounter43267179.reachGoal('otpravit'); return true;").btn.btn-lg Отправить
+                    .request__note Перезвоним через 10 минут. Поможем с выбором типа продукции для ваших целей, проконсультируем, подскажем цену.
+        | [[+fi.success:is=`1`:then=`
+        <div class="alert alert-success">[[+fi.successMessage]]</div>`]]
+        | [[+fi.validation_error:is=`1`:then=`
+        <div class="alert alert-danger">[[+fi.validation_error_message]]</div>`]]

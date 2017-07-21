@@ -1,0 +1,28 @@
+|{var $img = $_modx->resource.file[0]['small']}
+|{var $title = $_modx->resource.longtitle}
+|{var $uri = $_modx->resource.uri}
+.pup#order-pup(style="display: none;")
+    form(action="/[[~[[*id]]]]" method="post").pup-form.js-validation-form.ajax-form
+        .hd1 Оставить заявку
+        .pup-product.clear
+            .pup-product__label Модель
+            .pup-product__item
+                .pup-product__image
+                    img(src="[[+ms2g.1.small]]" alt="{$title}" ).pup-p-img
+                .pup-product__descr
+                    a(href="/{$uri}").pup-product__title.pup-p-link
+                    .pup-product__price
+                        ins.pup-p-price
+                    input(type="hidden" name="itemid").pup-p-id
+                    input(type="hidden" name="itemname").pup-p-name
+                    input(type="hidden" name="itemprice").pup-p-price
+                    input(type="hidden", name="itemlink").pup-p-link
+        .pup-form__row.clear
+            input(type="text" name="workemail" style="display:none;" value="")
+            label.pup-form__label Телефон
+            input(type="tel" name="phone" required="").pup-form__inp
+        .pup-form__row
+            label(for="note").pup-form__note  Оставьте сообщение, например: «Подскажите стоимость маркиз. Размер 150х400, привод с выключателем. Евгений»
+            textarea(name="note" id="note").pup-form__txa
+        .pup-form__footer
+            button(type="submit" onclick="yaCounter43267179.reachGoal('otpravit_zayavku'); return true;").btn Отправить заявку

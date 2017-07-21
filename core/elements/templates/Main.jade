@@ -1,0 +1,241 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+|{var $phone = $_modx->config.phone}
+
+.homeslider.js-homeslider
+    | {$_modx->runSnippet('!ms2GalleryResources', [
+    | 'parents' => 28,
+    | 'tpl' => ' @FILE chunks/slider/sliderOuter.html',
+    | 'includeThumbs' => '2160x760',
+    | 'includeOriginal' => '1',
+    | 'tplWrapper' => '@INLINE [[+output]]'])}
+
+.wrap
+    .home-about.clear
+        .home-about__text.c.c-8
+            h1 {$_modx->resource.longtitle}
+            p Мы&nbsp;предлагаем маркизы, перголы и&nbsp;плиссе из&nbsp;Западной Европы. Адаптируем их&nbsp;по&nbsp;цене и&nbsp;сервису для российского потребителя.
+            p Можем производить все существующие типы продукции.<br> В&nbsp;настоящее время штат насчитывает 28&nbsp;человек&nbsp;&mdash; это опытные менеджеры, дизайнеры, технологи, водители-монтажники.
+        .home-about__pic.c.c-4
+                .guarantee
+                    b.num 10
+                    span.text лет гарантии на всю продукцию
+    .promo.clear
+        .promo__image
+            img(src="assets/images/textile.jpg", alt="textile").promo__img
+        .promo__heading
+            span Мы единственные на&nbsp;российском рынке<br>используем ткани коллекции Cosiflor-2016
+        p.promo__descr  Ткань для коллекции производится в&nbsp;Германии и&nbsp;поставляется в&nbsp;Москву. Ткани коллекции&nbsp;&mdash; лучшие на&nbsp;Немецком и&nbsp;Американском рынке.В&nbsp;течении 5&nbsp;лет ткань не&nbsp;теряет свойств защитной пропитки поэтому не&nbsp;выгорает на&nbsp;солнце, не&nbsp;пачкается и&nbsp;остается стойкой при перепадах температуры.
+
+    //markizs
+    .flow.mark
+        .flow__item.tx.n1
+            h2.hd1
+              a(href="/{8 | url}") [[#8.pagetitle]]
+            p Изящный навес, который защитит ваш&nbsp;участок от&nbsp;солнца.
+            button.btn.btn-lg(data-scrollto=".request") Оставить заявку
+        .flow__item.w2
+            a(href="/{24 | url}")
+               img.img(src="assets/images/cat/mark01.jpg", alt="markiz")
+               .title
+                   span [[#24.pagetitle]]
+        .flow__item
+            a(href="/{25 | url}")
+                img.img(src="assets/images/cat/mark02.jpg", alt="markiz")
+                .title
+                   span [[#25.pagetitle]]
+        .flow__item
+            a(href="/{26 | url}")
+                img.img(src="assets/images/cat/mark04.jpg", alt="markiz")
+                .title
+                    span [[#26.pagetitle]]
+        .flow__item
+            a(href="/{27 | url}")
+                img.img(src="assets/images/cat/mark05.jpg", alt="markiz")
+                .title
+                    span [[#27.pagetitle]]
+        .flow__item
+            a(href="/{11 | url}")
+                img.img(src="assets/images/cat/mark03.jpg", alt="markiz")
+                .title
+                    span [[#11.pagetitle]]
+        .flow__item.tx
+            .flow__text Нанодобавки и&nbsp;присадки отталкивают воду. Подходит владельцу дачи или коттеджа, хозяину квартиры или офиса, содержателю кафе или магазина, обладателю зимнего сада.
+
+    .content
+        .experience.clear
+            .c.c-4
+                h3.hd1 Работаем 12 лет
+                p C&nbsp;2004 года мы&nbsp;поставляем из&nbsp;ЕС солнцезащитные системы, а&nbsp;также занимаемся изготовлением плиссированных штор на&nbsp;своём оборудовании из&nbsp;высококачественных импортных материалов.
+            .c.c-8
+                .diploms
+                    .diplom
+                        a(href="assets/images/sertifikat_10.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_10.jpg" alt="sertificat")
+                    .diplom
+                        a(href="assets/images/sertifikat_15.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_15.jpg" alt="sertificat")
+                    .diplom
+                        a(href="assets/images/sertifikat_18.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_18.jpg" alt="sertificat")
+                    .diplom
+                        a(href="assets/images/sertifikat_19.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_19.jpg" alt="sertificat")
+                    .diplom
+                        a(href="assets/images/sertifikat_20.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_20.jpg" alt="sertificat")
+                    .diplom
+                        a(href="assets/images/sertifikat_21.jpg", rel="fanc1").fancybox
+                            img(src="assets/images/sertifikat_21.jpg" alt="sertificat")
+    .flow.plis
+        .flow__item.n1.w2
+            a(href="/{61 | url}")
+              img(src="assets/images/cat/plis01.jpg", alt="plisse").img
+              .title
+                  span [[#61.pagetitle]]
+        .flow__item.n2.tx
+            h2.hd1
+              a(href="/{12 | url}") [[#12.pagetitle]]
+            p Набирающий популярность аксессуар для пластиковых окон, мансард, фигурных светопрозрачных конструкций, остеклённых веранд, дверей и&nbsp;балконов, зимних садов, витрин и&nbsp;пр.
+            button.btn.btn-lg(data-scrollto=".request") Оставить заявку
+        .flow__item.n3
+            a(href="/{65 | url}")
+                img(src="assets/images/cat/plis04.jpg", alt="plisse").img
+                .title
+                    span [[#65.pagetitle]]
+        .flow__item.n4
+            a(href="/{64 | url}")
+                img(src="assets/images/cat/plis02.jpg", alt="plisse").img
+                .title
+                    span [[#64.pagetitle]]
+        .flow__item.n5
+            a(href="/{62 | url}")
+                img(src="assets/images/cat/plis03.jpg", alt="plisse").img
+                .title
+                    span [[#62.pagetitle]]
+        .flow__item.n6
+            a(href="/{67 | url}")
+                img(src="assets/images/cat/plis06.jpg", alt="plisse").img
+                .title
+                    span [[#67.pagetitle]]
+        .flow__item.n7.tx
+            .flow__text Ткань для плиссе изготавливается с&nbsp;помощью специальной технологии, изменяющей её&nbsp;механические свойства,&nbsp;&mdash; плиссировки.
+        .flow__item.n8
+            a(href="/{88 | url}")
+                img(src="assets/images/cat/plis07.jpg", alt="plisse").img
+                .title
+                    span [[#88.pagetitle]]
+        .flow__item.n9
+            a(href="/{70 | url}")
+                img(src="assets/images/cat/plis05.jpg", alt="plisse").img
+                .title
+                    span [[#70.pagetitle]]
+        .flow__item.n10.tx
+            .flow__text Для оконных проёмов не прямоугольной формы — единственный возможный вариант затемнения окна.
+        .flow__item.n11
+            a(href="/{63 | url}")
+                img(src="assets/images/cat/plis08.jpg", alt="plisse").img
+                .title
+                    span [[#63.pagetitle]]
+        .flow__item.n12.w2
+            a(href="/{66 | url}")
+                img(src="assets/images/cat/plis09.jpg", alt="plisse").img
+                .title
+                    span [[#66.pagetitle]]
+
+.wave
+    .wrap
+        h3.section-heading [[#20.pagetitle]]
+        .clear
+            .proditems.c.c-9
+                | {$_modx->runSnippet('!msProducts', [
+                | 'includeThumbs' => 'medium,small',
+                | 'tpl' => ' @FILE chunks/category/ProductCard.html',
+                | 'where' => '{"Data.old_price:!=":"0"}',
+                | 'parents' =>  2])}
+            .subscribe-side
+                .subscribe-box
+                    | {$_modx->runSnippet('!Sendex',[
+                    | 'id' => 1])}
+
+
+
+        .btn-row
+            a(href="{20 | url}").btn.btn-lg Смотреть все акции
+.wrap
+    .content
+        .how
+            .hd1.centred Как мы работаем
+            .clear
+                .how__item
+                    .how__image
+                       img(src="assets/images/i-timer.png", alt="timer")
+                    .how__heading  Выполним заказ за&nbsp;1&nbsp;неделю
+                    .how__descr
+                            p Выезжаем на&nbsp;объект, замеряем, 3d-визуализируем проект.
+                            p Быстрая сборка и&nbsp;монтаж.
+                .how__item
+                    .how__image
+                        img(src="assets/images/i-shield.png", alt="shield")
+                    .how__heading  Используем популярные&nbsp;бренды
+                    .how__descr
+                            p Брендовые ткани не&nbsp;выгорают и&nbsp;не&nbsp;провисают, гарантируют до&nbsp;98% фильтрации УФ-лучей.
+                            p Фирменные механизмы обеспечивают плавный ход.
+                .how__item
+                    .how__image
+                        img(src="assets/images/i-award.png", alt="award")
+                    .how__heading  Гарантийный срок от&nbsp;1&nbsp;до&nbsp;10&nbsp;лет
+                    .how__descr
+                            p На&nbsp;все механизмы и&nbsp;ткань предоставляем гарантию.
+                            p У&nbsp;нас есть сертификаты&nbsp;ЕС
+    .clients
+        .clients__inner
+            .hd1.clients__heading Наши клиенты
+            .clients__text
+                p автосалоны группы Пеликан (BMW, Skoda, Nissan)
+                p Райффайзенбанк Австрия (более 30-ти отделений в&nbsp;столице<br> укомплектованы изделиями производства Санрайз)
+                p сеть аптек &laquo;Эвалар&raquo; и&nbsp;другие
+    .content
+        .experience.clear
+            .c.c-5
+                h3.hd1 Отзывы
+                p Cотрудничаем с крупными компаниями, производим продукцию по личному дизайну.  Выполняем заказы качественно и в срок.
+            .c.c-7
+                .diploms
+                    .diplom
+                        a(href="assets/images/otzyv3.jpg", rel="fanc2").fancybox
+                            img(src="assets/images/otzyv3.jpg" alt="otzyv3")
+                    .diplom
+                        a(href="assets/images/otzyv1.jpg", rel="fanc2").fancybox
+                            img(src="assets/images/otzyv1.jpg" alt="otzyv1")
+                    .diplom
+                        a(href="assets/images/otzyv2.jpg", rel="fanc2").fancybox
+                            img(src="assets/images/otzyv2.jpg" alt="otzyv2")
+.wave
+    .wrap
+        .hd1.centred  [[#23.pagetitle]]
+        .news.clear
+            |{$_modx->runSnippet('!ms2GalleryResources',[
+            | 'parents' => 23,
+            | 'tpl' => '@FILE chunks/MainarticleCard.html',
+            | 'limit' => 2,
+            | 'includeThumbs' => '427x297',
+            |])}
+        .btn-row
+            a(href="{23 | url}").btn-a Посмотреть все статьи
+
+|{$_modx->runSnippet('!AjaxForm',[
+|'snippet' => 'FormIt',
+|'form' => '@FILE chunks/request_form.html',
+|'hooks' => 'spam,email',
+|'emailTo' => 'havlad76@gmail.com',
+|'emailCC' => 'messages@axora.by,v.radevich@axora.by,dziubenko.evg@gmail.com',
+|'emailFrom' => 'admin@s8261.h6.modhost.pro',
+|'emailSubject' => 'Вопрос с сайта Markizy-shtory.ru',
+|'validate' => 'phone:required:isNumber,workemail:blank',
+|'successMessage' => 'Ваше сообщение успешно отправлено!',
+|'validationErrorMessage' => 'В форме содержатся ошибки! Введите  номер телефона!'])}
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+
+|{/block}
+

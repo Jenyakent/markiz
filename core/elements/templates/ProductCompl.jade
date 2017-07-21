@@ -1,0 +1,47 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+|{var $title = $_modx->resource.longtitle}
+|{var $id = $_modx->resource.id}
+.wrap
+    | {$_modx->runSnippet('pdoCrumbs@subcat3',[
+    | 'from' => '2'])}
+
+    .product.clear
+        .product__content
+            h1.product__title {$_modx->resource.pagetitle}
+            .product__price_row
+                span.product__prices
+                    |{if $old_price?}
+                    del.product__price_old от {$old_price} {'ms2_frontend_currency' | lexicon}
+                    |{/if}
+                    ins.product__price  от {$price} {'ms2_frontend_currency' | lexicon}
+            ul.data-list
+                |{$_modx->runSnippet('msProductOptions',[
+                |'tpl' => '@FILE chunks/product/ProductOptions1.html',
+                |'groups' => 12])}
+
+        | {$_modx->runSnippet('!msGallery')}
+
+        .product__descr
+            |{$_modx->resource.description}
+            .product__order
+                input(type="hidden", name="p-name", value="{$title}")
+                input(type="hidden", name="p-id", value="{$id}")
+                input(type="hidden", name="p-price", value="{$price} EUR")
+                input(type="hidden", name="p-img", value="[[+thumb]]")
+                input(type="hidden", name="p-url", value="[[~[[++site_start]]]]{$id | url}")
+                button.btn.order-btn Оставить заявку
+//Similar products
+.wave.wave-short
+    .wrap
+        h3.section-heading Похожие товары
+        .clear
+            .proditems-row.
+                {$_modx->runSnippet('!msProducts', [
+                'includeThumbs' => 'medium,small',
+                'tpl' => ' @FILE chunks/product/SimilarProductCard.html',
+                'parents' =>  $_modx->resource.parent,
+                'resources' => -$_modx->resource.id])}
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+
+|{/block}

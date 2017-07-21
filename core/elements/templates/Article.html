@@ -1,0 +1,6 @@
+{extends 'file:templates/Base.html'} {block 'content'}<div class="wrap"><div class="articletop clear"><div class="pagetop__text"><h1 class="hd1">{$_modx->resource.pagetitle}</h1></div></div><div class="article__section clear"><div class="article__content">{$_modx->resource.content}
+{$_modx->runSnippet('!pdoNeighbors', [
+'parents' => $_modx->resource.id,
+'tplWrapper' => '@INLINE <div class="article__pagination">[[+prev]][[+next]]</div>',
+'tplPrev' => '@INLINE <a class="page_prev" href="/[[+uri]]">Предыдущая статья</a>',
+'tplNext' => '@INLINE <a class="page_next" href="/[[+uri]]">Следующая статья</a>'])}</div><div class="order-side"><div class="order-box"><div class="order-box__content"><div class="order-box__heading">Если у&nbsp;вас остались вопросы, напишите&nbsp;нам</div><p>Перезвоним<br>и проконсультируем</p></div><div class="order-box__footer"><a href="/{22 | url}#request" class="btn yellow">Задать вопрос</a></div></div></div></div></div>{/block}

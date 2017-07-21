@@ -1,0 +1,14 @@
+{extends 'file:templates/Base.html'} {block 'content'}<div class="wrap"><div class="pagetop"><div class="pagetop__text"><h1 class="hd0">{$_modx->resource.pagetitle}</h1></div></div><div class="articles clear">{$_modx->runSnippet('!pdoPage',[
+'limit' => 2,
+'parents' => 23,
+'element' => 'ms2GalleryResources',
+'includeThumbs' => '433x301',
+'tpl' => '@FILE chunks/articleCard.html',
+'tplPage' => '@INLINE <a href="/[[+href]]" class="page">[[+pageNo]]</a>',
+'tplPageWrapper' => ' @INLINE <div class="articles__pagination">[[+first]][[+pages]][[+last]] </div>',
+'tplPageActive' => '@INLINE <a href="/[[+href]]" class="page current" name="current">[[+pageNo]]</a>',
+'tplPageFirst' => '@INLINE<a href="/[[+href]]" class="page_last">Первая страница</a> ...',
+'tplPageLast' => '@INLINE ... <a href="/[[+href]]" class="page_last">Последняя страница</a>',
+'tplPageFirstEmpty' => '',
+'tplPageLastEmpty' => ''
+])}</div><div class="articles__pagination">[[+page.nav]]</div></div>{/block}

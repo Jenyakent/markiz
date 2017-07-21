@@ -1,0 +1,16 @@
+{extends 'file:templates/Base.html'} {block 'content'}<div class="wrap">{$_modx->runSnippet('pdoCrumbs@subcat3',[
+'from' => '2'])}<div class="pagetop"><div class="pagetop__text"><h1 class="hd0">{$_modx->resource.pagetitle}</h1><p>{$_modx->resource.longtitle}</p></div></div>{$_modx->runSnippet('ms2Gallery',[
+'tplRow' => '@FILE chunks/category/BlockThumb.html',
+'tplSingle' => '@FILE chunks/category/BlockThumb.html',
+'limit' => '1'])}</div><div class="wave"><div class="wrap"><div class="catalog-descr"><div class="hd1">Каталог товаров</div><p>  {$_modx->resource.Cattext}</p></div>{$_modx->runSnippet('!mFilter2', [
+'includeThumbs' => 'medium,small',
+'parents' =>  $_modx->resource.id,
+'element' => 'msProducts',
+'limit' => 50,
+'filters' => 'parent:categories',
+'tplOuter' => '@FILE chunks/category/FilterOuter.html',
+'tpl' => ' @FILE chunks/category/ProductCard.html',
+'tplFilter.outer.resource|parent' => '@FILE chunks/category/CatFilterOuter.html',
+'tplFilter.row.resource|parent' => '@FILE chunks/category/CatFilterRow.html',
+'disableSuggestions' => '1'])}</div></div>{include 'file:chunks/page/wrapPageBottom.html'}
+{/block}

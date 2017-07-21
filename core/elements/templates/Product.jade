@@ -1,0 +1,76 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+|{var $title = $_modx->resource.longtitle}
+|{var $id = $_modx->resource.id}
+.wrap
+    | {$_modx->runSnippet('pdoCrumbs@subcat3',[
+    | 'from' => '2'])}
+
+    .product.clear
+        .product__content
+            h1.product__title {$_modx->resource.pagetitle}
+            .product__price_row
+                span.product__prices
+                   |{if $old_price?}
+                   del.product__price_old от {$old_price} {'ms2_frontend_currency' | lexicon}
+                   |{/if}
+                   ins.product__price  от {$price} {'ms2_frontend_currency' | lexicon}
+                span.product__price_note(data-scrollto=".price-list-block")
+                   span Цена зависит от комплектации
+            ul.data-list
+                |{$_modx->runSnippet('msProductOptions',[
+                |'tpl' => '@FILE chunks/product/ProductOptions1.html',
+                |'groups' => 12])}
+
+        | {$_modx->runSnippet('!msGallery')}
+
+        .product__descr
+            |{$_modx->resource.description}
+            .product__order
+                input(type="hidden", name="p-name", value="{$title}")
+                input(type="hidden", name="p-id", value="{$id}")
+                input(type="hidden", name="p-price", value="{$price} EUR")
+                input(type="hidden", name="p-img", value="[[+thumb]]")
+                input(type="hidden", name="p-url", value="[[~[[++site_start]]]]{$id | url}")
+                button.btn.order-btn Оставить заявку
+//Gallery color
+.product-variants
+    .wrap
+        h3.hd1 Подбор ткани
+        .product-variants__selection.clear.
+             {$_modx->runSnippet('!ms2Gallery',[
+             'resources' => $_modx->resource.galleryid ])}
+//Options
+.wrap
+    .content
+        .productcolumns.clear
+            .c.c-6
+                .hd1 Технические характеристики
+                ul.data-list.nodots.
+                     {$_modx->runSnippet('msProductOptions',[
+                     'tpl' => '@FILE chunks/product/ProductOptions1.html',
+                     'groups' => 10])}
+            .c.c-6.price-list-block
+                .hd1 Управление
+                p  Стоимость зависит от типа управления
+                .data-list__row.row-th
+                    span.data-list__title Тип управления
+                    span.data-list__description EUR
+                ul.data-list.price-list.
+                     {$_modx->runSnippet('msProductOptions',[
+                     'tpl' => '@FILE chunks/product/ProductOptions1.html',
+                     'groups' => 11])}
+//Similar products
+.wave.wave-short
+    .wrap
+        h3.section-heading Похожие товары
+        .clear
+            .proditems-row.
+                 {$_modx->runSnippet('!msProducts', [
+                 'includeThumbs' => 'medium,small',
+                 'tpl' => ' @FILE chunks/product/SimilarProductCard.html',
+                 'parents' =>  $_modx->resource.parent,
+                 'resources' => -$_modx->resource.id])}
+
+|{include 'file:chunks/page/wrapPageBottom.html'}
+
+|{/block}

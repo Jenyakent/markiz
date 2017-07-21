@@ -1,0 +1,17 @@
+.proditem
+    a(href="/{$id | url}").proditem__image
+        img(src="[[+medium]]", alt="{$pagetitle}")
+
+    .proditem__content
+        .proditem__title
+            a(href="/{$id | url}") {$longtitle}
+        |{if $old_price?}
+        .proditem__price-old
+            del от {$old_price} {'ms2_frontend_currency' | lexicon}</span>
+        |{/if}
+        .proditem__price
+            ins от {$price} {'ms2_frontend_currency' | lexicon}
+        | {if $old_price?}
+        .proditem__sticker
+            span -30%
+        | {/if}

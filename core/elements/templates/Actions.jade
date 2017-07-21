@@ -1,0 +1,54 @@
+|{extends 'file:templates/Base.html'} {block 'content'}
+
+.wrap
+    .pagetop
+        .pagetop__text
+            h1.hdo {$_modx->resource.pagetitle}
+            |[[!Ajaxsend?]]
+        .actions__list
+            .actions__item
+                img(src="/assets/images/ic-percent.png", alt="").actions__item_img
+                .actions__item_text
+                    .actions__item_title {$_modx->resource.action_title1}
+                    p.actions__item_descr {$_modx->resource.action_text1}
+            .actions__item
+                img(src="/assets/images/ic-remote-lg.png", alt="").actions__item_img
+                .actions__item_text
+                    .actions__item_title {$_modx->resource.action_title2}
+                    p.actions__item_descr {$_modx->resource.action_text2}
+            .actions__item
+                img(src="/assets/images/ic-gift.png", alt="").actions__item_img
+                .actions__item_text
+                    .actions__item_title {$_modx->resource.action_title3}
+                    p.actions__item_descr {$_modx->resource.action_text3}
+            .actions__item
+                img(src="/assets/images/ic-percent.png", alt="").actions__item_img
+                .actions__item_text
+                    .actions__item_title {$_modx->resource.action_title4}
+                    p.actions__item_descr {$_modx->resource.action_text4}
+
+.wave
+    .wrap
+        h3.section-heading Товары на акции
+        .clear
+            .catalog__items.c.c-9
+                | {$_modx->runSnippet('msProducts', [
+                | 'includeThumbs' => 'medium,small',
+                | 'tpl' => ' @FILE chunks/category/ProductCard.html',
+                | 'where' => '{"Data.old_price:!=":"0"}',
+                | 'parents' =>  2
+                | 'limit' => 50])}
+            .subscribe-side
+                .subscribe-box
+                    | {$_modx->runSnippet('!Sendex',[
+                    | 'id' => 1,
+                    | 'tplSubscribeGuest' => 'tpl.Sendex.subscribe.guest'])}
+
+
+
+
+
+
+
+
+|{/block}

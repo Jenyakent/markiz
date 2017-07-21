@@ -1,0 +1,32 @@
+|{var $phone = $_modx->config.phone}
+|{var $logo = $_modx->config.logo}
+.top.sticky
+    header.header
+       .wrap.clear
+           .header__logo
+               a(href="/" title="Маркизы купить в Москве")
+                 svg(width="163" height="34").header__logo_img
+                     <image xlink:href="/assets/images/site/logo.svg" src="/{$logo}" alt="Маркизы купить в Москве" width="163" height="34" />
+
+           .header__nav
+               a(href="/{23 | url}").header__nav_a Статьи
+               a(href="/{21 | url}").header__nav_a О компании
+           .header__right
+               | {switch $_modx->resource.id}
+               |   {case 1}
+               |      {include 'file:chunks/general/buttonheader.html'}
+               |   {case 21}
+               |      {include 'file:chunks/general/buttonheader.html'}
+               |   {case 22}
+               |      {include 'file:chunks/general/buttonheader.html'}
+               |   {default}
+               |      {include 'file:chunks/general/linkheader.html'}
+               | {/switch}
+    nav.nav
+      .wrap
+        |{include 'submenu'}
+
+
+
+
+

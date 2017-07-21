@@ -1,0 +1,6 @@
+article.news__item
+    a(href="/{$uri}").news__image
+        img(src="{$_pls[\'427x297\']}", alt="")
+    time.news__date [[+publishedon:date=`%d.%m.%Y`]]
+    a(href="/{$uri}").news__title {$pagetitle}
+    p.news__intro {$introtext}

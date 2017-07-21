@@ -1,0 +1,33 @@
+|{var $phone = $_modx->config.phone}
+.wrap
+    .pagetop
+        .pagetop__text
+            h1.hd0 {$_modx->resource.pagetitle}
+    .contacts__wrap
+        .contacts__text
+            .contacts__block
+                .contacts__block_title Телефоны
+                p <a href="tel:{$phone}" style="color:black">{$_modx->config.phone}</a>
+            .contacts__block
+                .contacts__block_title Адрес офиса
+                |{$_modx->config.adress}
+            .contacts__block
+                .contacts__block_title Режим работы
+                |{$_modx->config.time}
+        .contacts__map_place
+            .contacts__map
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A24d31a9cee46507bf63a421da34849c69cc37a400ba9b768f37f934edcf8529e&amp;width=678&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+    | {$_modx->runSnippet('!AjaxForm',[
+    | 'snippet' => 'FormIt',
+    | 'form' => '@FILE chunks/request_unpage.html',
+    | 'hooks' => 'spam,email',
+    | 'emailTo' => 'havlad76@gmail.com',
+    | 'emailCC' => 'messages@axora.by,dziubenko.evg@gmail.com',
+    | 'emailFrom' => 'admin@s8261.h6.modhost.pro',
+    | 'emailSubject' => 'Вопрос с сайта Markizy-shtory.ru',
+    | 'validate' => 'phone:required:isNumber,workemail:blank',
+    | 'successMessage' => 'Ваше сообщение успешно отправлено!',
+    | 'validationErrorMessage' => 'В форме содержатся ошибки! Введите  номер телефона!'])}
+
+
+

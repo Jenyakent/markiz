@@ -1,0 +1,12 @@
+{extends 'file:templates/Base.html'} {block 'content'}<div style="background-image: url('/assets/images/bg-heading.jpg')" class="page-heading"><div class="wrap">{$_modx->runSnippet('pdoCrumbs@subcat3',[
+'from' => '2'])}<h1>{$_modx-> resource.pagetitle}</h1></div></div>{$_modx->runSnippet('ms2GalleryResources', [
+'parents' => $_modx->resource.id,
+'depth' => 0,
+'includeTVs' => 'feature1,feature2,feature3,descr1,descr2,descr3',
+'tvPrefix' => 'tv.',
+'includeThumbs' => '535x345','310x212',
+'sortby' => 'menuindex',
+'sortdir' => 'ASC',
+'tpl' => ' @FILE chunks/category/Subcat3Block.html'])}
+{include 'file:chunks/page/wrapPageBottom.html'}
+{/block}

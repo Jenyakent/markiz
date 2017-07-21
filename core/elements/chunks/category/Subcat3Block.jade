@@ -1,0 +1,34 @@
+.wrap
+    .promo.promo-catalog.clear
+        .promo__image
+            img(src="{$_pls[\'535x345\']}", alt="").promo__img
+        .promo__heading
+            span
+                a(href="/{$uri}") {$pagetitle}
+        .promo__descr {$description}
+    .features.clear
+        .features__item
+            i.feature__icon.sun
+            .feature__text
+                .feature__title [[+tv.feature1]]
+                .feature__descr  [[+tv.descr1]]
+        .features__item
+            i.feature__icon.remote
+            .feature__text
+                .feature__title [[+tv.feature2]]
+                .feature__descr [[+tv.descr2]]
+        .features__item
+            i.feature__icon.placemark
+            .feature__text
+                .feature__title [[+tv.feature3]]
+                .feature__descr [[+tv.descr3]]
+
+    .gallery
+        .hd1.gallery__title Примеры наших работ
+        |{$_modx->runSnippet('ms2Gallery', [
+        | 'resources' => $id,
+        | 'tplRow' => '@FILE chunks/category/BlockGallery.html',
+        | 'tplOuter' => '@INLINE <div class="gallery__items">[[+rows]]</div>'])}
+
+.wave-dash
+

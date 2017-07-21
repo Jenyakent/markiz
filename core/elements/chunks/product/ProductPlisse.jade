@@ -1,0 +1,11 @@
+.c.c-6.price-list-block
+    .hd1 Управление
+    p  Стоимость зависит от типа управления
+    .data-list__row.row-th
+        span.data-list__title Тип управления
+        span.data-list__description EUR
+    ul.data-list.price-list
+        | {$_modx->runSnippet('msProductOptions',[
+        | 'tpl' => '@FILE chunks/product/ProductOptions1.html',
+        | 'groups' => 11,
+        | 'sortOptions' => 'DESC'])}

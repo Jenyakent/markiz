@@ -1,0 +1,10 @@
+<a href="{$files[0]['url']}" title="{$title}">
+    <img src="{$files[0]['438x329'] ?: '/assets/images/site/empty.png'}" />
+</a>
+<div class="row"></div>
+{foreach $files as $file}
+<div class="col s12 l3">
+    <a href="{$file['url']}" title="{$title}">
+        <img src="{$file['98x74'] ?: '/assets/images/site/empty.png'}" class="responsive-img"/>
+    </a>
+</div>{/foreach}

@@ -1,0 +1,18 @@
+{extends 'file:templates/Base.html'} {block 'content'}
+{var $title = $_modx->resource.longtitle}
+{var $id = $_modx->resource.id}<div class="wrap">{$_modx->runSnippet('pdoCrumbs@subcat3',[
+'from' => '2'])}<div class="product clear"><div class="product__content"><h1 class="product__title">{$_modx->resource.pagetitle}</h1><div class="product__price_row"><span class="product__prices">{if $old_price?}<del class="product__price_old">от {$old_price} {'ms2_frontend_currency' | lexicon}</del>{/if}<ins class="product__price"> от {$price} {'ms2_frontend_currency' | lexicon}</ins></span><span data-scrollto=".price-list-block" class="product__price_note"><span>Цена зависит от комплектации</span></span></div><ul class="data-list">{$_modx->runSnippet('msProductOptions',[
+'tpl' => '@FILE chunks/product/ProductOptions1.html',
+'groups' => 12])}</ul></div>{$_modx->runSnippet('!msGallery')}<div class="product__descr">{$_modx->resource.description}<div class="product__order"><input type="hidden" name="p-name" value="{$title}"/><input type="hidden" name="p-id" value="{$id}"/><input type="hidden" name="p-price" value="{$price} EUR"/><input type="hidden" name="p-img" value="[[+thumb]]"/><input type="hidden" name="p-url" value="[[~[[++site_start]]]]{$id | url}"/><button class="btn order-btn">Оставить заявку</button></div></div></div></div><!--Gallery color--><div class="product-variants"><div class="wrap"><h3 class="hd1">Подбор ткани</h3><div class="product-variants__selection clear">{$_modx->runSnippet('!ms2Gallery',[
+'resources' => $_modx->resource.galleryid ])}</div></div></div><!--Options--><div class="wrap"><div class="content"><div class="productcolumns clear"><div class="c c-6"><div class="hd1">Технические характеристики</div><ul class="data-list nodots">{$_modx->runSnippet('msProductOptions',[
+'tpl' => '@FILE chunks/product/ProductOptions1.html',
+'groups' => 10])}</ul></div><div class="c c-6 price-list-block"><div class="hd1">Цвет профиля</div><p> Стоимость зависит от цвета профиля</p><div class="data-list__row row-th"><span class="data-list__title">Цвет по каталогу RAL</span><span class="data-list__description">EUR</span></div><ul class="data-list price-list">{$_modx->runSnippet('msProductOptions',[
+'tpl' => '@FILE chunks/product/ProductOptions1.html',
+'groups' => 15,
+'sortOptions' => 'DESC'])}</ul></div></div></div></div><!--Similar products--><div class="wave wave-short"><div class="wrap"><h3 class="section-heading">Похожие товары</h3><div class="clear"><div class="proditems-row">{$_modx->runSnippet('!msProducts', [
+'includeThumbs' => 'medium,small',
+'tpl' => ' @FILE chunks/product/SimilarProductCard.html',
+'parents' =>  $_modx->resource.parent,
+'resources' => -$_modx->resource.id])}
+</div></div></div></div>{include 'file:chunks/page/wrapPageBottom.html'}
+{/block}

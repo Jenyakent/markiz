@@ -1,0 +1,23 @@
+doctype html
+html(lang="ru")
+    head.
+        {block 'head'}
+        {include 'file:chunks/general/head.html'}
+        {/block}
+
+    body.nofound
+        .wrap
+            .nf__content
+                a(href="/")
+                    svg(width="163" height="34").header__logo_img
+                        <image xlink:href="/assets/images/site/logo.svg" src="/{$logo}" width="163" height="34" />
+                .nf__404 404
+                .nf__text
+                    p Извините! Страница, которую Вы ищете, не может быть найдена. Возможно, запрашиваемая Вами страница была перенесена или удалена.
+                    p Переходите на главную страницу – там у нас много полезной информации.
+                    .btn-row
+                        a(href="/").btn Перейти на главную
+                    .nf__bottom  Если ничего не получилось – свяжитесь с нами <br> по тел. 8 800 333-83-35
+                    .nf__footer © 2017, ООО «Санрайз»
+
+

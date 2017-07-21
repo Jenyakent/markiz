@@ -1,0 +1,11 @@
+{$_modx->runSnippet('!AjaxForm',[
+'snippet' => 'FormIt',
+'form' => '@FILE chunks/Modal/CatOrderModal.html',
+'hooks' => 'spam,email',
+'emailTo' => 'havlad76@gmail.com',
+'emailCC' => 'messages@axora.by,v.radevich@axora.by,dziubenko.evg@gmail.com',
+'emailFrom' => 'admin@s8261.h6.modhost.pro',
+'emailSubject' => 'Заявка с сайта Markizy-shtory.ru',
+'emailTpl' => 'CatOrderTpl',
+'validate' => 'phone:required,workemail:blank',
+'successMessage' => 'Ваше сообщение успешно отправлено!'])}
